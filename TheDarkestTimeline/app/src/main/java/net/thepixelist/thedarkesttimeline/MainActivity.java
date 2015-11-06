@@ -1,17 +1,32 @@
 package net.thepixelist.thedarkesttimeline;
 
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
+    Button myButton;
+    TextView thewords;
+    ImageView theimage;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        myButton = (Button) findViewById(R.id.button);
+        myButton.setOnClickListener(new OurOnClickListener(this));
+        thewords = (TextView) findViewById(R.id.textwords);
+        theimage = (ImageView) findViewById(R.id.imageView);
+
+
     }
 
     @Override
@@ -30,6 +45,11 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast toastMessage = Toast.makeText(this, "you went back to the start", Toast.LENGTH_LONG);
+            toastMessage.show();
+            finish();
+            startActivity(getIntent());
+
             return true;
         }
 
