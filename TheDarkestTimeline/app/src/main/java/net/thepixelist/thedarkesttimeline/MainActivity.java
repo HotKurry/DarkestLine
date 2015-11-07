@@ -14,18 +14,22 @@ public class MainActivity extends AppCompatActivity {
     Button myButton;
     TextView thewords;
     ImageView theimage;
-
-
+    Character c;
+    Area theMap;
+    int xsize, ysize;
+    String cname;
+    Node[] nodes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myButton = (Button) findViewById(R.id.button);
         myButton.setOnClickListener(new OurOnClickListener(this));
         thewords = (TextView) findViewById(R.id.textwords);
         theimage = (ImageView) findViewById(R.id.imageView);
-
 
     }
 
